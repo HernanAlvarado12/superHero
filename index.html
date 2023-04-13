@@ -33,7 +33,7 @@
     <body>
         
         <main class ="w-full h-full min-h-screen flex items-center justify-center bg-red bg-main">
-            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black">
+            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black sm:w-85 sm:max-h-[58rem] sm:px-3">
                 <section class ="flex items-center justify-between">
                     <h1 class ="text-white text-md font-normal">Super<span class ="text-red">Hero.</span></h1>
                     <form class =" flex items-center justify-end relative">
@@ -44,33 +44,33 @@
                         </label>
                     </form>
                 </section>
-                <section class ="">
-                    <figure class ="w-full mt-3">
-                        <img class ="w-full aspect-square rounded-sm" src ="./assets/batman.jpg" alt ="picture hero">
+                <section class ="sm:mt-3 sm:grid sm:grid-cols-main sm:gap-x-2.5">
+                    <figure class ="w-full mt-3 sm:h-full sm:mt-0">
+                        <img class ="w-full max-h-[43rem] aspect-square rounded-sm sm:h-full" src ="./assets/batman.jpg" alt ="picture hero">
                     </figure>
-                    <section class ="mt-3 mb-3 text-white uppercase">
-                        <h2 class ="mb-1 text-base">Batman</h2>
-                        <ul class ="grid grid-cols-2 justify-items-center text-xss text-center" id ="optionsInformation">
-                            <li class ="w-full py-1 relative border-b border-grey" data-option ="1">
-                                powerstats
-                                <span class ="w-full h-[3px] absolute -bottom-[2px] left-0 bg-red"></span>
-                            </li>
-                            <li class ="w-full py-1 relative border-b border-grey" data-option ="2">
-                                biography
-                                <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
-                            </li>
-                            <li class ="w-full py-1 relative border-b border-grey" data-option ="3">
-                                appearance
-                                <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
-                            </li>
-                            <li class ="w-full py-1 relative border-b border-grey" data-option ="4">
-                                connections
-                                <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
-                            </li>
-                        </ul>
-                    </section>
-                    <section id ="optionsList">
-                        <ul class ="">
+                    <section class ="h-[43rem] sm:pr-1.5 overflow-y-scroll" id ="optionsList">
+                        <section class ="mt-3 mb-3 text-white uppercase sm:mt-0">
+                            <h2 class ="mb-1 text-base">Batman</h2>
+                            <ul class ="grid grid-cols-2 justify-items-center text-xss text-center" id ="optionsInformation">
+                                <li class ="w-full py-1 relative border-b border-grey" data-option ="1">
+                                    powerstats
+                                    <span class ="w-full h-[3px] absolute -bottom-[2px] left-0 bg-red"></span>
+                                </li>
+                                <li class ="w-full py-1 relative border-b border-grey" data-option ="2">
+                                    biography
+                                    <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                                </li>
+                                <li class ="w-full py-1 relative border-b border-grey" data-option ="3">
+                                    appearance
+                                    <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                                </li>
+                                <li class ="w-full py-1 relative border-b border-grey" data-option ="4">
+                                    connections
+                                    <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                                </li>
+                            </ul>
+                        </section>
+                        <ul>
                             <li class ="py-1 flex items-center justify-between text-sm border-b-2">
                                 <div class ="flex items-center gap-x-1.5">
                                     <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
@@ -184,7 +184,23 @@
                                 <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">black</span>
                             </li>
                         </ul>
-                        <ul class ="hidden"></ul>
+                        <ul class ="hidden">
+                            <li>
+                                <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">group--affiliation</h3>
+                                <p class ="mt-1 mb-3 text-white text-xs leading-loose">
+                                    Batman Family, Batman Incorporated, Justice League, Outsieders, Wayne Enterprises, 
+                                    Club of Heroes, formerly White Lantern Corps, Sineestro Corps
+                                </p>
+                            </li>
+                            <li>
+                                <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">relatives</h3>
+                                <p class ="mt-1 text-white text-xs leading-loose">
+                                    Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd
+                                    (adopted son), Cassandre Cain (adopted son), Martha Wayne (mother, deceased), Thomas Wayne
+                                    (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased)
+                                </p>
+                            </li>
+                        </ul>
                     </section>
                 </section>
             </section>

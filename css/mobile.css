@@ -20,4 +20,14 @@
         -webkit-text-fill-color: #505050;
         -webkit-box-shadow: 0 0 0 40px #0a0a0a inset !important;
     }
+
+    main section#optionsList::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    main section#optionsList::-webkit-scrollbar-thumb { 
+        width: 8rem;
+        border-radius: 2rem;
+        background-color: #f64445;
+    }
 }
