@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang ="es">
+
+    <head>
+        <meta charset ="UTF-8">
+        <title>FETCH JS</title>
+        <meta name ="description" content ="Project to practice api rest">      
+        <meta name ="viewport" content ="width=device-width, initial-scale=1.0">
+        <meta name ="keywords" content ="html, css, tailwindcss, vanillajs">    
+        <meta name ="robots" content ="index, follow">
+        <meta name ="author" content ="Hernan Alvarado">
+        <meta name ="copyright" content ="Hernan Alvarado">
+        <meta name ="geo.placename" content ="Bogota">
+        <meta name ="geo.region" content ="57">
+        <meta name ="revisit-afte" content ="Días">
+        <meta name ="distribution" content ="Global">
+        <meta name ="classification" content ="popular game">
+        <meta name ="google-analytics" content ="ID to create">
+        <meta name ="google-site-verification" content ="ID to create">
+        <meta property ="og:title" content ="rock, paper and scissors">
+        <meta property ="og:description" content ="web page for practice">
+        <meta property ="og:url" content ="link">
+        <meta property ="og:image" content ="link">
+        <meta property ="og:type" content ="programming">
+        <meta http-equiv ="cache-control" content ="no-cache">
+        <link rel ="shortcut icon" href ="./assets/favicon.png" type ="image/x-icon">
+        <link rel ="preconnect" href ="https://fonts.googleapis.com">
+        <link rel ="preconnect" href ="https://fonts.gstatic.com" crossorigin>
+        <link rel ="stylesheet" href ="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,200;1,400&display=swap">
+        <link rel ="stylesheet" href ="./css/tailwind.css">
+    </head>
+
+    <body>
+        
+        <main class ="w-full flex items-center justify-center bg-red bg-main">
+            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black">
+                <section class ="flex items-center justify-between">
+                    <h1 class ="text-white text-md font-normal">Super<span class ="text-red">Hero.</span></h1>
+                    <form class =" flex items-center justify-end relative">
+                        <input class ="w-85 h-3.5 pr-4 indent-1 text-grey text-xs outline-none rounded-full border border-grey caret-grey bg-transparent placeholder:text-grey" type ="text" name ="superheroName" placeholder ="Search your superhero here...">
+                        <label class ="w-2.5 h-2.5 absolute right-1">
+                            <ion-icon class ="w-2.5 h-2.5 text-grey" name ="search-outline"></ion-icon>
+                            <input type ="submit" value ="">
+                        </label>
+                    </form>
+                </section>
+                <section class ="">
+                    <figure class ="w-full mt-3">
+                        <img class ="w-full aspect-square rounded-sm" src ="./assets/batman.jpg" alt ="picture hero">
+                    </figure>
+                    <section class ="mt-3 mb-3 text-white uppercase">
+                        <h2 class ="mb-1 text-base">Batman</h2>
+                        <ul class ="grid grid-cols-2 justify-items-center text-xss text-center">
+                            <li class ="w-full py-1 relative border-b border-grey">
+                                powerstats
+                                <span class ="w-full h-[3px] absolute -bottom-[2px] left-0 bg-red"></span>
+                            </li>
+                            <li class ="w-full py-1 border-b border-grey">biography</li>
+                            <li class ="w-full py-1 border-b border-grey">appearance</li>
+                            <li class ="w-full py-1 border-b border-grey">connections</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul class ="hidden flex-col">
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                    <span class ="text-grey uppercase">intelligence</span>
+                                </div>
+                                <span class ="text-yellow">100</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">                   
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                    <span class ="text-grey uppercase">strength</span>
+                                </div>
+                                <span class ="text-yellow">26</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                    <span class ="text-grey uppercase">speed</span>
+                                </div>                 
+                                <span class ="text-yellow">27</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                    <span class ="text-grey uppercase">durability</span>
+                                </div>          
+                                <span class ="text-yellow">50</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                    <span class ="text-grey uppercase">power</span>
+                                </div>   
+                                <span class ="text-yellow">47</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                    <span class ="text-grey uppercase">combat</span>
+                                </div>
+                                <span class ="text-yellow">100</span>
+                            </li>
+                        </ul>
+                        <ul class ="hidden text-xs capitalize">
+                            <li class ="py-1">
+                                <span class ="text-grey">full name:</span>
+                                <span class ="ml-1 text-white">Bruce Wayne</span>
+                            </li>
+                            <li class ="py-1">
+                                <span class ="text-grey">alter egos:</span>
+                                <span class ="ml-1 text-white">no alter egos fond</span>
+                            </li>
+                            <li class ="py-1">
+                                <span class ="text-grey">aliases:</span>
+                                <span class ="ml-1 text-white">insider, matches malone</span>
+                            </li>
+                            <li class ="py-1">
+                                <span class ="text-grey">place of birth:</span>
+                                <span class ="ml-1 text-white">gcrest hill, bristol township</span>
+                            </li>
+                            <li class ="py-1">
+                                <span class ="text-grey">first appearance:</span>
+                                <span class ="ml-1 text-white">detectice comics #27</span>
+                            </li>
+                            <li class ="py-1">
+                                <span class ="text-grey">publiser:</span>
+                                <span class ="ml-1 text-white">dc comics</span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                    <span class ="text-grey uppercase">gender</span>
+                                </div>
+                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">male</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">                   
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                    <span class ="text-grey uppercase">race</span>
+                                </div>
+                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">human</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                    <span class ="text-grey uppercase">height</span>
+                                </div>                 
+                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">6'2</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                    <span class ="text-grey uppercase">weight</span>
+                                </div>          
+                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">210 lb</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                    <span class ="text-grey uppercase">eye color</span>
+                                </div>   
+                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">blue</span>
+                            </li>
+                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                <div class ="flex items-center gap-x-1.5">
+                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                    <span class ="text-grey uppercase">hair color</span>
+                                </div>
+                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">black</span>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+            </section>
+        </main>
+
+        <script src ="./model.js" type ="module"></script>
+        <script type ="module" src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+
+</html>
