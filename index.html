@@ -32,12 +32,12 @@
 
     <body>
         
-        <main class ="w-full flex items-center justify-center bg-red bg-main">
+        <main class ="w-full h-full min-h-screen flex items-center justify-center bg-red bg-main">
             <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black">
                 <section class ="flex items-center justify-between">
                     <h1 class ="text-white text-md font-normal">Super<span class ="text-red">Hero.</span></h1>
                     <form class =" flex items-center justify-end relative">
-                        <input class ="w-85 h-3.5 pr-4 indent-1 text-grey text-xs outline-none rounded-full border border-grey caret-grey bg-transparent placeholder:text-grey" type ="text" name ="superheroName" placeholder ="Search your superhero here...">
+                        <input class ="w-85 h-3.5 pr-4 indent-1.5 text-grey text-xs outline-none rounded-full border border-grey caret-grey bg-transparent placeholder:text-grey autofill:text-red autofill:focus:text-yellow autofill:hover:text-yellow" type ="text" name ="superheroName" placeholder ="Search your superhero here...">
                         <label class ="w-2.5 h-2.5 absolute right-1">
                             <ion-icon class ="w-2.5 h-2.5 text-grey" name ="search-outline"></ion-icon>
                             <input type ="submit" value ="">
@@ -50,18 +50,27 @@
                     </figure>
                     <section class ="mt-3 mb-3 text-white uppercase">
                         <h2 class ="mb-1 text-base">Batman</h2>
-                        <ul class ="grid grid-cols-2 justify-items-center text-xss text-center">
-                            <li class ="w-full py-1 relative border-b border-grey">
+                        <ul class ="grid grid-cols-2 justify-items-center text-xss text-center" id ="optionsInformation">
+                            <li class ="w-full py-1 relative border-b border-grey" data-option ="1">
                                 powerstats
                                 <span class ="w-full h-[3px] absolute -bottom-[2px] left-0 bg-red"></span>
                             </li>
-                            <li class ="w-full py-1 border-b border-grey">biography</li>
-                            <li class ="w-full py-1 border-b border-grey">appearance</li>
-                            <li class ="w-full py-1 border-b border-grey">connections</li>
+                            <li class ="w-full py-1 relative border-b border-grey" data-option ="2">
+                                biography
+                                <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                            </li>
+                            <li class ="w-full py-1 relative border-b border-grey" data-option ="3">
+                                appearance
+                                <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                            </li>
+                            <li class ="w-full py-1 relative border-b border-grey" data-option ="4">
+                                connections
+                                <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                            </li>
                         </ul>
                     </section>
-                    <section>
-                        <ul class ="hidden flex-col">
+                    <section id ="optionsList">
+                        <ul class ="">
                             <li class ="py-1 flex items-center justify-between text-sm border-b-2">
                                 <div class ="flex items-center gap-x-1.5">
                                     <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
@@ -131,7 +140,7 @@
                                 <span class ="ml-1 text-white">dc comics</span>
                             </li>
                         </ul>
-                        <ul>
+                        <ul class ="hidden">
                             <li class ="py-1 flex items-center justify-between text-sm border-b-2">
                                 <div class ="flex items-center gap-x-1.5">
                                     <ion-icon class ="text-yellow" name ="star"></ion-icon>
@@ -175,6 +184,7 @@
                                 <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">black</span>
                             </li>
                         </ul>
+                        <ul class ="hidden"></ul>
                     </section>
                 </section>
             </section>
