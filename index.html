@@ -3,7 +3,7 @@
 
     <head>
         <meta charset ="UTF-8">
-        <title>FETCH JS</title>
+        <title>Superhero search</title>
         <meta name ="description" content ="Project to practice api rest">      
         <meta name ="viewport" content ="width=device-width, initial-scale=1.0">
         <meta name ="keywords" content ="html, css, tailwindcss, vanillajs">    
@@ -33,7 +33,7 @@
     <body>
         
         <main class ="w-full h-full min-h-screen flex items-center justify-center bg-red bg-main">
-            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black sm:w-85 sm:max-h-[58rem] sm:px-3">
+            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black sm:w-85 sm:max-h-[58rem] sm:px-3 sm:max-w-screen-lg">
                 <section class ="flex items-center justify-between">
                     <h1 class ="text-white text-md font-normal">Super<span class ="text-red">Hero.</span></h1>
                     <form class ="flex items-center justify-end relative sm:w-50">
@@ -68,135 +68,42 @@
                             </ul>
                         </section>
                         <ul id ="powerstats">
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
-                                    <span class ="text-grey uppercase">intelligence</span>
-                                </div>
-                                <span class ="text-yellow">100</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">                   
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
-                                    <span class ="text-grey uppercase">strength</span>
-                                </div>
-                                <span class ="text-yellow">26</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
-                                    <span class ="text-grey uppercase">speed</span>
-                                </div>                 
-                                <span class ="text-yellow">27</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
-                                    <span class ="text-grey uppercase">durability</span>
-                                </div>          
-                                <span class ="text-yellow">50</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
-                                    <span class ="text-grey uppercase">power</span>
-                                </div>   
-                                <span class ="text-yellow">47</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
-                                    <span class ="text-grey uppercase">combat</span>
-                                </div>
-                                <span class ="text-yellow">100</span>
-                            </li>
+                            <template id ="powerstatTemplate">
+                                <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                    <div class ="flex items-center gap-x-1.5">
+                                        <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
+                                        <span class ="text-grey uppercase"></span>
+                                    </div>
+                                    <span class ="text-yellow"></span>
+                                </li>
+                            </template>
                         </ul>
                         <ul class ="hidden text-xs capitalize" id ="biography">
-                            <li class ="py-1">
-                                <span class ="text-grey">full name:</span>
-                                <span class ="ml-1 text-white">Bruce Wayne</span>
-                            </li>
-                            <li class ="py-1">
-                                <span class ="text-grey">alter egos:</span>
-                                <span class ="ml-1 text-white">no alter egos fond</span>
-                            </li>
-                            <li class ="py-1">
-                                <span class ="text-grey">aliases:</span>
-                                <span class ="ml-1 text-white">insider, matches malone</span>
-                            </li>
-                            <li class ="py-1">
-                                <span class ="text-grey">place of birth:</span>
-                                <span class ="ml-1 text-white">gcrest hill, bristol township</span>
-                            </li>
-                            <li class ="py-1">
-                                <span class ="text-grey">first appearance:</span>
-                                <span class ="ml-1 text-white">detectice comics #27</span>
-                            </li>
-                            <li class ="py-1">
-                                <span class ="text-grey">publiser:</span>
-                                <span class ="ml-1 text-white">dc comics</span>
-                            </li>
+                            <template id ="biographyTemplate">
+                                <li class ="py-1">
+                                    <span class ="text-grey"></span>
+                                    <span class ="ml-1 text-white"></span>
+                                </li>
+                            </template>
                         </ul>
                         <ul class ="hidden" id ="appearance">
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
-                                    <span class ="text-grey uppercase">gender</span>
-                                </div>
-                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">male</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">                   
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
-                                    <span class ="text-grey uppercase">race</span>
-                                </div>
-                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">human</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
-                                    <span class ="text-grey uppercase">height</span>
-                                </div>                 
-                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">6'2</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
-                                    <span class ="text-grey uppercase">weight</span>
-                                </div>          
-                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">210 lb</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
-                                    <span class ="text-grey uppercase">eye color</span>
-                                </div>   
-                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">blue</span>
-                            </li>
-                            <li class ="py-1 flex items-center justify-between text-sm border-b-2">
-                                <div class ="flex items-center gap-x-1.5">
-                                    <ion-icon class ="text-yellow" name ="star"></ion-icon>
-                                    <span class ="text-grey uppercase">hair color</span>
-                                </div>
-                                <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">black</span>
-                            </li>
+                            <template id ="appearanceTemplate">
+                                <li class ="py-1 flex items-center justify-between text-sm border-b-2">
+                                    <div class ="flex items-center gap-x-1.5">
+                                        <ion-icon class ="text-yellow" name ="star"></ion-icon>
+                                        <span class ="text-grey uppercase"></span>
+                                    </div>
+                                    <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red"></span>
+                                </li>
+                            </template>                            
                         </ul>
                         <ul class ="hidden" id ="connections">
-                            <li>
-                                <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">group--affiliation</h3>
-                                <p class ="mt-1 mb-3 text-white text-xs leading-loose">
-                                    Batman Family, Batman Incorporated, Justice League, Outsieders, Wayne Enterprises, 
-                                    Club of Heroes, formerly White Lantern Corps, Sineestro Corps
-                                </p>
-                            </li>
-                            <li>
-                                <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">relatives</h3>
-                                <p class ="mt-1 text-white text-xs leading-loose">
-                                    Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd
-                                    (adopted son), Cassandre Cain (adopted son), Martha Wayne (mother, deceased), Thomas Wayne
-                                    (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased)
-                                </p>
-                            </li>
+                            <template id ="connectionsTemplate">
+                                <li>
+                                    <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">group--affiliation</h3>
+                                    <p class ="mt-1 mb-3 text-white text-xs leading-loose"></p>
+                                </li>
+                            </template>
                         </ul>
                     </section>
                 </section>

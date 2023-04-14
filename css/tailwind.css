@@ -613,10 +613,6 @@ main #searchList::-webkit-scrollbar-track-piece {
   margin-top: 3rem;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -1027,6 +1023,10 @@ main #searchList::-webkit-scrollbar-track-piece {
 
   .sm\:w-full {
     width: 100%;
+  }
+
+  .sm\:max-w-screen-lg {
+    max-width: 1024px;
   }
 
   .sm\:grid-cols-main {
