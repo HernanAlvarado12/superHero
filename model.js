@@ -3,8 +3,8 @@ const searchHeroFragment = document.createDocumentFragment()
 const optionsInfoFragment = document.createDocumentFragment()
 const optionsList = [...document.querySelectorAll('#optionsList > ul')]
 const formElement = document.querySelector('main form.flex.items-center')
+const URL_ROOTER = 'https://www.superheroapi.com/api.php/3544900422420027'
 const options = [... document.querySelectorAll('#optionsInformation > li')]
-const URL_ROOTER = 'https://www.superheroapi.com/api.php/3544900422420027/search'
 const searchList = document.querySelector('main form.flex > section#searchList')
 const searchHeroTemplate = document.getElementById('searchSuperheroTemplate').content
 const optionsInfoTemplate = document.getElementById('optionsInformationTemplate').content
@@ -32,18 +32,16 @@ document.addEventListener('click', event => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const options = ['powerstat', 'biography', 'appearance', 'connections']
-    options.forEach((option, index) => {
-        const clone = optionsInfoTemplate.cloneNode(true)
-        const nodeText = document.createTextNode(option)
-        if(index === 0)
-            console.log(clone.firstElementChild.firstElementChild.classList.add('option-active'))
-        const listItem = clone.querySelector('li')
-        listItem.append(nodeText)
-        listItem.setAttribute('data-option', index +1)
-        optionsInfoFragment.appendChild(clone)
-    })
-    document.querySelector('#optionsInformation').append(optionsInfoFragment)
+    insertOptions()
+    const connections = ['group--affiliation', 'relatives']
+    const appearance = ['gender', 'race', 'height', 'weight', 'eye color', 'hair color']
+    const stats = ['intelligence', 'strength', 'speed', 'durability', 'power', 'combat']
+    const biography = ['full name', 'alter egos', 'aliases', 'place of birth', 'first appearance', 'publiser']
+    loadTitlesContainer({ titles: connections, queryTemplate: 'connectionsTemplate', selector: 'li > h3', parentSelector: 'ul#connections' })
+    loadTitlesContainer({ titles: appearance, queryTemplate: 'appearanceTemplate', selector: 'div > span', parentSelector: 'ul#appearance'})
+    loadTitlesContainer({ titles:  biography, queryTemplate: 'biographyTemplate', selector: 'li > span', parentSelector: 'ul#biography'} )
+    loadTitlesContainer({ titles: stats, queryTemplate: 'powerstatTemplate', selector: 'li > div > span', parentSelector: 'ul#powerstats'} )
+    loadHero()
 })
 
 
@@ -63,6 +61,67 @@ document.addEventListener('submit', event => {
     }
 })
 
+
+/**
+ * 
+ * @param {String} searchHero 
+ */
+const fetchAllSuperHero = async searchHero => {
+    fetch(`${URL_ROOTER}/search/${searchHero}`)
+        .then(response => response.json())
+        .then(consumer)
+        .catch(error => console.log(error))
+}
+
+
+/**
+ * @typedef {Object} titles
+ * @property {Array<String>} titles
+ * @property {String} queryTemplate
+ * @property {String} selector
+ * @property {String} parentSelector
+ * @param {titles} 
+ */
+const loadTitlesContainer = ({ titles, queryTemplate, selector, parentSelector }) => {
+    const fragment = document.createDocumentFragment()
+    const template = document.getElementById(queryTemplate).content
+    titles.forEach(title => {
+        const clone = template.cloneNode(true)
+        clone.querySelector(selector).textContent = title
+        fragment.append(clone)
+    })
+    document.querySelector(parentSelector).append(fragment)
+}
+
+
+/**
+ * @returns {void}
+ */
+const loadHero = async () => {
+    fetch(`${URL_ROOTER}/70`)
+        .then(response => response.json())
+        .then(changeSuperHero)
+        .catch(error => console.log(error))
+}
+
+
+/**
+ * @returns {void}
+ */
+const insertOptions = () => {
+    const options = ['powerstat', 'biography', 'appearance', 'connections']
+    options.forEach((option, index) => {
+        const clone = optionsInfoTemplate.cloneNode(true)
+        const nodeText = document.createTextNode(option)
+        if (index === 0)
+            clone.firstElementChild.firstElementChild.classList.add('option-active')
+        const listItem = clone.querySelector('li')
+        listItem.append(nodeText)
+        listItem.setAttribute('data-option', index + 1)
+        optionsInfoFragment.appendChild(clone)
+    })
+    document.querySelector('#optionsInformation').append(optionsInfoFragment)
+}
 
 /**
  * 
@@ -107,18 +166,6 @@ const parentNode = (currentNode, match) => {
             return currentNode
         return parentNode(currentNode.parentElement, match)
     }
-}
-
-
-/**
- * 
- * @param {String} searchHero 
- */
-const fetchAllSuperHero = async searchHero => {
-    fetch(`${URL_ROOTER}/${searchHero}`)
-        .then(response => response.json())
-        .then(consumer)
-        .catch(error => console.log(error))
 }
 
 
