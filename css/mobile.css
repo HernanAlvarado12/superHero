@@ -14,4 +14,35 @@
         font-size: 62.5%;
         font-family: 'Poppins', sans-serif;
     }
+
+    input:-webkit-autofill:is(:hover,:focus, :active),
+    input:-webkit-autofill {
+        -webkit-text-fill-color: #505050;
+        -webkit-box-shadow: 0 0 0 40px #0a0a0a inset !important;
+    }
+
+
+    main section:is(#optionsList, #searchList)::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    main section#optionsList::-webkit-scrollbar-thumb { 
+        width: 8rem;
+        border-radius: 2rem;
+        background-color: #f64445;
+    }
+
+    main #searchList::-webkit-scrollbar-thumb {
+        border-radius: 2rem;
+        background: white;
+    }
+    main #searchList::-webkit-scrollbar-track-piece {
+        margin: 0.4rem;
+    }
+}
+
+@layer utilities {
+    .option-active {
+        @apply block;
+    }
 }

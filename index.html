@@ -32,36 +32,42 @@
 
     <body>
         
-        <main class ="w-full flex items-center justify-center bg-red bg-main">
-            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black">
+        <main class ="w-full h-full min-h-screen flex items-center justify-center bg-red bg-main">
+            <section class ="w-90 mx-auto m-3 py-4 px-2 rounded-lg opacity-95 bg-black sm:w-85 sm:max-h-[58rem] sm:px-3">
                 <section class ="flex items-center justify-between">
                     <h1 class ="text-white text-md font-normal">Super<span class ="text-red">Hero.</span></h1>
-                    <form class =" flex items-center justify-end relative">
-                        <input class ="w-85 h-3.5 pr-4 indent-1 text-grey text-xs outline-none rounded-full border border-grey caret-grey bg-transparent placeholder:text-grey" type ="text" name ="superheroName" placeholder ="Search your superhero here...">
+                    <form class ="flex items-center justify-end relative sm:w-50">
+                        <input class ="w-85 h-3.5 pr-4 indent-1.5 text-grey text-xs outline-none rounded-full border border-grey caret-grey bg-transparent placeholder:text-grey autofill:text-red autofill:focus:text-yellow autofill:hover:text-yellow sm:w-full md:max-w-xl" type ="text" name ="superheroName" placeholder ="Search your superhero here...">
                         <label class ="w-2.5 h-2.5 absolute right-1">
                             <ion-icon class ="w-2.5 h-2.5 text-grey" name ="search-outline"></ion-icon>
                             <input type ="submit" value ="">
                         </label>
+                        <section class ="w-85 max-h-[35rem] overflow-y-scroll absolute top-3.5 z-10 shadow-2xl rounded-sm bg-black sm:w-full md:max-w-xl" id ="searchList">                            
+                            <template id ="searchSuperheroTemplate">
+                                <figure class ="py-1 px-1.5 flex items-center gap-x-1 cursor-pointer" data-id ="">
+                                    <img class ="w-4 h-5 rounded-sm" alt ="picture superhero">
+                                    <figcaption class ="text-white text-sm"></figcaption>
+                                </figure>
+                            </template>
+                        </section>
                     </form>
                 </section>
-                <section class ="">
-                    <figure class ="w-full mt-3">
-                        <img class ="w-full aspect-square rounded-sm" src ="./assets/batman.jpg" alt ="picture hero">
+                <section class ="sm:mt-3 sm:grid sm:grid-cols-main sm:gap-x-2.5">
+                    <figure class ="w-full mt-3 sm:h-full sm:mt-0">
+                        <img class ="w-full max-h-[43rem] aspect-square rounded-sm sm:h-full" id ="heroImage" src ="./assets/batman.jpg" alt ="picture hero">
                     </figure>
-                    <section class ="mt-3 mb-3 text-white uppercase">
-                        <h2 class ="mb-1 text-base">Batman</h2>
-                        <ul class ="grid grid-cols-2 justify-items-center text-xss text-center">
-                            <li class ="w-full py-1 relative border-b border-grey">
-                                powerstats
-                                <span class ="w-full h-[3px] absolute -bottom-[2px] left-0 bg-red"></span>
-                            </li>
-                            <li class ="w-full py-1 border-b border-grey">biography</li>
-                            <li class ="w-full py-1 border-b border-grey">appearance</li>
-                            <li class ="w-full py-1 border-b border-grey">connections</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <ul class ="hidden flex-col">
+                    <section class ="sm:h-[43rem] sm:pr-1.5 sm:overflow-y-scroll" id ="optionsList">
+                        <section class ="mt-3 mb-3 text-white uppercase sm:mt-0">
+                            <h2 class ="mb-1 text-base" id ="heroName">Batman</h2>
+                            <ul class ="grid grid-cols-2 justify-items-center text-xss text-center lg:grid-cols-4" id ="optionsInformation">
+                                <template id ="optionsInformationTemplate">
+                                    <li class ="w-full py-1 relative cursor-pointer border-b border-grey group" data-option ="">
+                                        <span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </section>
+                        <ul id ="powerstats">
                             <li class ="py-1 flex items-center justify-between text-sm border-b-2">
                                 <div class ="flex items-center gap-x-1.5">
                                     <ion-icon class ="text-red" name ="shield-half-outline"></ion-icon>
@@ -105,7 +111,7 @@
                                 <span class ="text-yellow">100</span>
                             </li>
                         </ul>
-                        <ul class ="hidden text-xs capitalize">
+                        <ul class ="hidden text-xs capitalize" id ="biography">
                             <li class ="py-1">
                                 <span class ="text-grey">full name:</span>
                                 <span class ="ml-1 text-white">Bruce Wayne</span>
@@ -131,7 +137,7 @@
                                 <span class ="ml-1 text-white">dc comics</span>
                             </li>
                         </ul>
-                        <ul>
+                        <ul class ="hidden" id ="appearance">
                             <li class ="py-1 flex items-center justify-between text-sm border-b-2">
                                 <div class ="flex items-center gap-x-1.5">
                                     <ion-icon class ="text-yellow" name ="star"></ion-icon>
@@ -173,6 +179,23 @@
                                     <span class ="text-grey uppercase">hair color</span>
                                 </div>
                                 <span class ="py-[3px] px-1 text-white capitalize rounded-full bg-red">black</span>
+                            </li>
+                        </ul>
+                        <ul class ="hidden" id ="connections">
+                            <li>
+                                <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">group--affiliation</h3>
+                                <p class ="mt-1 mb-3 text-white text-xs leading-loose">
+                                    Batman Family, Batman Incorporated, Justice League, Outsieders, Wayne Enterprises, 
+                                    Club of Heroes, formerly White Lantern Corps, Sineestro Corps
+                                </p>
+                            </li>
+                            <li>
+                                <h3 class ="pl-2 flex items-center text-grey text-md uppercase relative before:content-[''] before:w-1.5 before:h-[2px] before:absolute before:left-0 before:bg-yellow">relatives</h3>
+                                <p class ="mt-1 text-white text-xs leading-loose">
+                                    Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd
+                                    (adopted son), Cassandre Cain (adopted son), Martha Wayne (mother, deceased), Thomas Wayne
+                                    (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased)
+                                </p>
                             </li>
                         </ul>
                     </section>

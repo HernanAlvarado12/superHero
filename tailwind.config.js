@@ -42,6 +42,9 @@ export default {
         lg: '1rem',
         xl: '6rem'
       },
+      gridTemplateColumns: {
+        main: '0.8fr 1fr'
+      },
       colors: {
         white: '#fff',
         red: '#f64445',
