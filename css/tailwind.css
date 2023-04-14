@@ -439,7 +439,7 @@ input:-webkit-autofill:is(:hover,:focus, :active),
   -webkit-box-shadow: 0 0 0 40px #0a0a0a inset !important;
 }
 
-main section#optionsList::-webkit-scrollbar {
+main section:is(#optionsList, #searchList)::-webkit-scrollbar {
   width: 0.5rem;
 }
 
@@ -447,6 +447,15 @@ main section#optionsList::-webkit-scrollbar-thumb {
   width: 8rem;
   border-radius: 2rem;
   background-color: #f64445;
+}
+
+main #searchList::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  background: white;
+}
+
+main #searchList::-webkit-scrollbar-track-piece {
+  margin: 0.4rem;
 }
 
 *, ::before, ::after {
@@ -563,6 +572,18 @@ main section#optionsList::-webkit-scrollbar-thumb {
   right: 1rem;
 }
 
+.top-3 {
+  top: 3rem;
+}
+
+.top-3\.5 {
+  top: 3.5rem;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
 .m-3 {
   margin: 3rem;
 }
@@ -624,16 +645,20 @@ main section#optionsList::-webkit-scrollbar-thumb {
   height: 3.5rem;
 }
 
+.h-5 {
+  height: 5rem;
+}
+
 .h-\[3px\] {
   height: 3px;
 }
 
-.h-\[43rem\] {
-  height: 43rem;
-}
-
 .h-full {
   height: 100%;
+}
+
+.max-h-\[35rem\] {
+  max-height: 35rem;
 }
 
 .max-h-\[43rem\] {
@@ -652,6 +677,10 @@ main section#optionsList::-webkit-scrollbar-thumb {
   width: 2.5rem;
 }
 
+.w-4 {
+  width: 4rem;
+}
+
 .w-85 {
   width: 85%;
 }
@@ -662,6 +691,10 @@ main section#optionsList::-webkit-scrollbar-thumb {
 
 .w-full {
   width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .grid-cols-2 {
@@ -752,6 +785,11 @@ main section#optionsList::-webkit-scrollbar-thumb {
 .px-1 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-1\.5 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .px-2 {
@@ -858,6 +896,12 @@ main section#optionsList::-webkit-scrollbar-thumb {
   opacity: 0.95;
 }
 
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -953,6 +997,10 @@ main section#optionsList::-webkit-scrollbar-thumb {
     display: grid;
   }
 
+  .sm\:h-\[43rem\] {
+    height: 43rem;
+  }
+
   .sm\:h-full {
     height: 100%;
   }
@@ -961,8 +1009,16 @@ main section#optionsList::-webkit-scrollbar-thumb {
     max-height: 58rem;
   }
 
+  .sm\:w-50 {
+    width: 50%;
+  }
+
   .sm\:w-85 {
     width: 85%;
+  }
+
+  .sm\:w-full {
+    width: 100%;
   }
 
   .sm\:grid-cols-main {
@@ -979,6 +1035,10 @@ main section#optionsList::-webkit-scrollbar-thumb {
          column-gap: 2.5rem;
   }
 
+  .sm\:overflow-y-scroll {
+    overflow-y: scroll;
+  }
+
   .sm\:px-3 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -990,5 +1050,17 @@ main section#optionsList::-webkit-scrollbar-thumb {
 
   .sm\:pr-1\.5 {
     padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:max-w-xl {
+    max-width: 36rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

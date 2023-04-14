@@ -21,7 +21,8 @@
         -webkit-box-shadow: 0 0 0 40px #0a0a0a inset !important;
     }
 
-    main section#optionsList::-webkit-scrollbar {
+
+    main section:is(#optionsList, #searchList)::-webkit-scrollbar {
         width: 0.5rem;
     }
 
@@ -29,5 +30,14 @@
         width: 8rem;
         border-radius: 2rem;
         background-color: #f64445;
+    }
+
+
+    main #searchList::-webkit-scrollbar-thumb {
+        border-radius: 2rem;
+        background: white;
+    }
+    main #searchList::-webkit-scrollbar-track-piece {
+        margin: 0.4rem;
     }
 }
