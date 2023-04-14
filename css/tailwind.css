@@ -852,6 +852,10 @@ main #searchList::-webkit-scrollbar-track-piece {
   font-size: 1.2rem;
 }
 
+.font-extralight {
+  font-weight: 200;
+}
+
 .font-normal {
   font-weight: 400;
 }

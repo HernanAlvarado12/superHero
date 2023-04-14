@@ -77,17 +77,20 @@ const fetchAllSuperHero = async searchHero => {
 /**
  * @typedef {Object} titles
  * @property {Array<String>} titles
+ * @property {String} [extra]
+ * @property {Boolean} [dataAttribute]
  * @property {String} queryTemplate
  * @property {String} selector
  * @property {String} parentSelector
- * @param {titles} 
+ * @param {titles} object
  */
-const loadTitlesContainer = ({ titles, queryTemplate, selector, parentSelector }) => {
+const loadTitlesContainer = ({ titles, extra = '', dataAttribute = false,  queryTemplate, selector, parentSelector }) => {
     const fragment = document.createDocumentFragment()
     const template = document.getElementById(queryTemplate).content
-    titles.forEach(title => {
+    titles.forEach((title, index) => {
         const clone = template.cloneNode(true)
-        clone.querySelector(selector).textContent = title
+        clone.firstElementChild.setAttribute('data-option', dataAttribute? index +1 : '')
+        clone.querySelector(selector).innerHTML = `${title}${extra}`
         fragment.append(clone)
     })
     document.querySelector(parentSelector).append(fragment)
@@ -110,17 +113,11 @@ const loadHero = async () => {
  */
 const insertOptions = () => {
     const options = ['powerstat', 'biography', 'appearance', 'connections']
-    options.forEach((option, index) => {
-        const clone = optionsInfoTemplate.cloneNode(true)
-        const nodeText = document.createTextNode(option)
-        if (index === 0)
-            clone.firstElementChild.firstElementChild.classList.add('option-active')
-        const listItem = clone.querySelector('li')
-        listItem.append(nodeText)
-        listItem.setAttribute('data-option', index + 1)
-        optionsInfoFragment.appendChild(clone)
+    loadTitlesContainer({ 
+        titles: options, extra: '<span class ="w-full h-[3px] hidden absolute -bottom-[2px] left-0 bg-red"></span>',
+        dataAttribute: 1, queryTemplate: 'optionsInformationTemplate', selector: 'li', parentSelector: '#optionsInformation' 
     })
-    document.querySelector('#optionsInformation').append(optionsInfoFragment)
+    document.querySelector('#optionsInformation > li > span').classList.add('option-active')
 }
 
 /**
