@@ -32,12 +32,17 @@
         background-color: #f64445;
     }
 
-
     main #searchList::-webkit-scrollbar-thumb {
         border-radius: 2rem;
         background: white;
     }
     main #searchList::-webkit-scrollbar-track-piece {
         margin: 0.4rem;
+    }
+}
+
+@layer utilities {
+    .option-active {
+        @apply block;
     }
 }

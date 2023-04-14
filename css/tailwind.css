@@ -613,6 +613,10 @@ main #searchList::-webkit-scrollbar-track-piece {
   margin-top: 3rem;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -905,6 +909,10 @@ main #searchList::-webkit-scrollbar-track-piece {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.option-active {
+  display: block;
 }
 
 .placeholder\:text-grey::-moz-placeholder {

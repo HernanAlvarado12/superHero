@@ -1,11 +1,13 @@
 let queryResult = []
-const fragmentSearchHero = document.createDocumentFragment()
+const searchHeroFragment = document.createDocumentFragment()
+const optionsInfoFragment = document.createDocumentFragment()
 const optionsList = [...document.querySelectorAll('#optionsList > ul')]
 const formElement = document.querySelector('main form.flex.items-center')
 const options = [... document.querySelectorAll('#optionsInformation > li')]
 const URL_ROOTER = 'https://www.superheroapi.com/api.php/3544900422420027/search'
 const searchList = document.querySelector('main form.flex > section#searchList')
 const searchHeroTemplate = document.getElementById('searchSuperheroTemplate').content
+const optionsInfoTemplate = document.getElementById('optionsInformationTemplate').content
 
 
 document.addEventListener('click', event => {
@@ -14,17 +16,34 @@ document.addEventListener('click', event => {
      */
     const target = event.target
     if(target.matches('#optionsInformation > li')) {
-        const previous = document.querySelector('#optionsInformation > li > span:not(.hidden)')
-        previous.classList.add('hidden')
-        target.firstElementChild.classList.remove('hidden')
+        const previous = document.querySelector('#optionsInformation > li > span.option-active')
+        previous.classList.remove('option-active')
+        target.firstElementChild.classList.add('option-active')
         toggleClassListOption({ currentNode: previous.parentElement, optionsList })
-        toggleClassListOption({ currentNode: target, optionsList })
+        toggleClassListOption({ currentNode: target, optionsList })        
+
     } else if(target.matches('form.flex > section#searchList :is(figure, img, figcaption)')) {
         const selectedHeroId = parentNode(target, 'section#searchList > figure').getAttribute('data-id')
         const heroInfo = queryResult.find(superhero => superhero.id === selectedHeroId)
         changeSuperHero(heroInfo)
         clearChildNodes(searchList)
     }
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const options = ['powerstat', 'biography', 'appearance', 'connections']
+    options.forEach((option, index) => {
+        const clone = optionsInfoTemplate.cloneNode(true)
+        const nodeText = document.createTextNode(option)
+        if(index === 0)
+            console.log(clone.firstElementChild.firstElementChild.classList.add('option-active'))
+        const listItem = clone.querySelector('li')
+        listItem.append(nodeText)
+        listItem.setAttribute('data-option', index +1)
+        optionsInfoFragment.appendChild(clone)
+    })
+    document.querySelector('#optionsInformation').append(optionsInfoFragment)
 })
 
 
@@ -66,7 +85,7 @@ const changeSuperHero = (heroInfo) => {
  * @property {Object} jsonData
  * @param {miniInfo}
  */
-const putInformationHero = ({ nodeList, jsonData }) => {
+const putInformationHero = async ({ nodeList, jsonData }) => {
     Object.values(jsonData).forEach((value, index) => {
         if(index < nodeList.length)
             nodeList[index].textContent = value
@@ -124,10 +143,10 @@ const consumer = (jsonData) => {
         clone.querySelector('img.w-4').setAttribute('src', url)
         clone.querySelector('figcaption.text-sm').textContent = name
         clone.querySelector('figure').setAttribute('data-id', id)
-        fragmentSearchHero.append(clone)
+        searchHeroFragment.append(clone)
     })
     queryResult = jsonData.results
-    searchList.append(fragmentSearchHero)
+    searchList.append(searchHeroFragment)
 }
 
 
